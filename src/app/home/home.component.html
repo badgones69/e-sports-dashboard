@@ -1,0 +1,15 @@
+  <div id="home-page-container">
+    <!-- WELCOME MESSAGE -->
+    <h1>{{ welcomeMessage() }}</h1>
+    @if (welcomeLogo()) {
+      <!-- WELCOME LOGO -->
+      <img
+        id="welcome-logo"
+        [ngSrc]="welcomeLogo()"
+        width="256"
+        height="256"
+        alt="Logo"
+        priority
+      />
+    }
+  </div>

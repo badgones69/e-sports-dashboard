@@ -1,0 +1,98 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app-toolbar {
+  width: 100%;
+  flex-shrink: 0;
+  z-index: 2;
+  background-color: var(--app-black);
+
+  /* Barre plus fine uniquement en mode paysage sur téléphone */
+  @media (max-height: 500px) {
+    height: 48px;
+    min-height: 48px;
+  }
+}
+
+.app-sidenav-container {
+  flex: 1;
+  min-height: 0; /* Indispensable pour que le scroll interne fonctionne dans Flexbox */
+}
+
+.app-sidenav {
+  width: 250px;
+  border-radius: 0;
+  padding-left: 16px;
+  font-style: var(--app-beige);
+  background-color: var(--app-blue);
+  border-right: 2px solid var(--app-pink);
+}
+.menu-button {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 45px;
+  margin-top: 5px;
+}
+.menu-button > span {
+  margin-right: 20px;
+}
+.menu-button > i,
+.submenu-button > i {
+  margin-right: 8px;
+}
+
+.submenu-button {
+  width: 100%;
+  display: flex;
+  padding-left: 65px;
+  justify-content: left;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.menu-button:hover,
+.menu-button:focus,
+.submenu-button:hover,
+.submenu-button:focus {
+  background-color: var(--app-blue);
+}
+
+/* --- CENTRAGE VERTICAL UNIVERSEL --- */
+
+.app-content {
+  background-color: #fafafa;
+  height: 100%;
+  overflow-y: auto; /* Gère le scroll proprement si le contenu dépasse */
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+
+  /* ::ng-deep permet de cibler le composant dynamique injecté par le router */
+  ::ng-deep > *:not(router-outlet) {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 960px), (max-height: 500px) {
+    padding: 12px 16px;
+  }
+}

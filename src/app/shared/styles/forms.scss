@@ -1,0 +1,57 @@
+/* Form */
+form > *:not(.form-buttons) {
+  display: block;
+}
+
+/* Title */
+.form-title {
+  font-family: var(--app-font), sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Fields */
+mat-form-field {
+  margin-bottom: 20px;
+}
+mat-form-field .error-hint {
+  color: var(--app-red);
+}
+
+.airport-form-field {
+  min-width: 400px;
+}
+.airport-form-field .airports-list-item {
+  font-weight: bold;
+}
+
+/* Country field container */
+.country-field-container {
+  display: flex;
+  align-items: baseline;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+  margin-top: 10px;
+}
+
+.back-button,
+.submit-form-button,
+.reset-form-button {
+  font-weight: bold;
+}
+.back-button {
+  background-color: var(--app-red);
+}
+.submit-form-button {
+  background-color: var(--app-blue);
+}
+.reset-form-button {
+  background-color: var(--app-black);
+}

@@ -1,0 +1,228 @@
+@use "@angular/material" as mat;
+
+/* Responsive breakpoints */
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 767px;
+
+/* Buttons theme overriding */
+@mixin buttons() {
+  .mat-mdc-button,
+  .mat-mdc-icon-button {
+    font-family: var(--app-font), sans-serif;
+  }
+
+  .mat-mdc-button:focus,
+  .mat-mdc-icon-button:focus {
+    background-color: transparent;
+  }
+
+  .mat-mdc-icon-button .mat-mdc-button-persistent-ripple {
+    display: none;
+  }
+
+  .mat-mdc-button:not(.input-button),
+  .mat-mdc-icon-button:not(.input-button) {
+    color: var(--app-beige);
+  }
+
+  .mat-mdc-button.input-button,
+  .mat-mdc-icon-button.input-button {
+    color: var(--app-blue);
+  }
+
+  .mat-mdc-extended-fab {
+    padding-inline: 15px 10px;
+    max-width: 100%;
+  }
+
+  .mat-mdc-extended-fab:disabled {
+    background-color: var(--app-grey);
+  }
+
+  /* Tablet */
+  @media (max-width: $breakpoint-tablet) {
+    .mat-mdc-button,
+    .mat-mdc-extended-fab {
+      min-height: 40px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: $breakpoint-mobile) {
+    .mat-mdc-button {
+      max-width: 100%;
+      white-space: normal;
+      line-height: 1.3;
+    }
+
+    .mat-mdc-icon-button {
+      --mat-icon-button-state-layer-size: 44px;
+    }
+
+    .mat-mdc-extended-fab {
+      min-height: 44px;
+      padding-inline: 12px;
+    }
+  }
+}
+
+/* Tables theme overriding */
+@mixin tables {
+  .mat-mdc-table {
+    width: 100%;
+    border: 2px solid var(--app-red);
+    table-layout: auto;
+  }
+
+  .mdc-data-table__cell {
+    padding: 0;
+  }
+
+  .mat-mdc-header-row > *:not(#actions) {
+    color: var(--app-beige);
+    background-color: var(--app-blue);
+  }
+
+  th .mat-mdc-icon-button.mat-mdc-button-base,
+  td .mat-mdc-icon-button.mat-mdc-button-base {
+    padding: 0;
+    --mat-icon-button-state-layer-size: 36px;
+  }
+
+  .mat-mdc-paginator {
+    margin-top: 20px;
+  }
+
+  /* Tablet */
+  @media (max-width: $breakpoint-tablet) {
+    .mat-mdc-table {
+      font-size: 14px;
+    }
+
+    .mdc-data-table__cell,
+    .mdc-data-table__header-cell {
+      padding-inline: 6px;
+    }
+
+    .mat-mdc-paginator {
+      margin-top: 12px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: $breakpoint-mobile) {
+    .mat-mdc-table {
+      min-width: 600px;
+    }
+
+    .mat-mdc-paginator {
+      margin-top: 12px;
+    }
+
+    .mat-mdc-paginator-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 8px;
+      padding: 8px;
+    }
+
+    th .mat-mdc-icon-button.mat-mdc-button-base,
+    td .mat-mdc-icon-button.mat-mdc-button-base {
+      --mat-icon-button-state-layer-size: 40px;
+    }
+  }
+}
+
+/* Radio buttons theme overriding */
+@mixin radio {
+  .mat-mdc-radio-button.mat-accent {
+    --mat-radio-label-text-color: var(--app-blue);
+    --mat-radio-label-text-weight: bold;
+    --mat-radio-checked-ripple-color: var(--app-blue);
+    --mat-radio-ripple-color: var(--app-blue);
+    --mat-radio-selected-focus-icon-color: var(--app-blue);
+    --mat-radio-selected-hover-icon-color: var(--app-blue);
+    --mat-radio-selected-icon-color: var(--app-blue);
+    --mat-radio-selected-pressed-icon-color: var(--app-blue);
+    --mat-radio-unselected-focus-icon-color: var(--app-blue);
+    --mat-radio-unselected-hover-icon-color: var(--app-blue);
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .mat-mdc-radio-button {
+      max-width: 100%;
+    }
+
+    .mdc-form-field {
+      white-space: normal;
+    }
+  }
+}
+
+/* Global responsive rules */
+@mixin responsive-global {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    scroll-behavior: var(--responsive-scroll-behavior, auto);
+    animation-duration: var(--responsive-animation-duration, initial);
+    animation-iteration-count: var(
+      --responsive-animation-iteration-count,
+      initial
+    );
+    transition-duration: var(--responsive-transition-duration, initial);
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+    font: inherit;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --responsive-scroll-behavior: auto;
+      --responsive-animation-duration: 0.01ms;
+      --responsive-animation-iteration-count: 1;
+      --responsive-transition-duration: 0.01ms;
+    }
+  }
+}
+
+/* Responsive table container
+   Add class="table-responsive" to the table wrapper in the HTML. */
+@mixin responsive-table-container {
+  .table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Main theme */
+@mixin theme() {
+  @include buttons();
+  @include tables();
+  @include radio();
+  @include responsive-global();
+  @include responsive-table-container();
+}

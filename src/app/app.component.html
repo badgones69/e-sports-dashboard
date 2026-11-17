@@ -1,0 +1,115 @@
+<div class="app-layout">
+  <!-- Barre supérieure pleine largeur -->
+  <mat-toolbar class="app-toolbar">
+    <button mat-icon-button (click)="drawer.toggle()" aria-label="Basculer le menu">
+      <i class="material-icons">menu</i>
+    </button>
+  </mat-toolbar>
+
+  <!-- Conteneur principal sous la toolbar -->
+  <mat-sidenav-container class="app-sidenav-container">
+    
+    <!-- Menu pliable à gauche -->
+    <mat-sidenav 
+      #drawer
+      class="app-sidenav"
+      [mode]="isMobile() ? 'over' : 'side'"
+      [opened]="!isMobile()">
+      
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button
+      mat-button
+      (click)="menuToggle(true)"
+      routerLink="aircrafts/list"
+      class="menu-button"
+    >
+      <i class="material-icons">travel</i>
+      <span>Avion</span>
+    </button>
+    <button mat-button (click)="openAboutDialog()" class="menu-button">
+      <i class="material-icons">info</i>
+      <span>À propos</span>
+    </button>
+
+    </mat-sidenav>
+
+    <!-- Zone de contenu dynamique à droite -->
+    <mat-sidenav-content class="app-content">
+      <main class="page-wrapper">
+        <router-outlet />
+      </main>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
